@@ -15,8 +15,8 @@ class CreateBrandsTable extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('slug')->nullable();
+            $table->string('title')->nullable()->index();
+            $table->string('slug')->nullable()->index();
             $table->string('image_brand')->default('no_brand_image.svg');
             $table->string('description')->nullable();
             $table->string('keywords')->nullable();

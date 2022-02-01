@@ -16,16 +16,16 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('id_postavschika')->nullable();
-            $table->string('title')->nullable();
-            $table->string('slug')->nullable();
+            $table->string('title')->nullable()->index();
+            $table->string('slug')->nullable()->index();
             $table->integer('category_id'); // привязать к таблице с категориями
             $table->float('price', 8, 2)->default(0)->unsigned();
             $table->float('price_old', 8, 2)->default(0)->unsigned();
-            $table->string('description_short')->nullable();
-            $table->string('description')->nullable();
+            $table->string('description_short')->nullable()->index();
+            $table->string('description')->nullable()->index();
             $table->integer('brand_id')->nullable();  // привязать к таблице с наименованиями брендов
             $table->string('image_main')->default('no_image.svg'); // главная картинка
-            $table->string('keywords')->nullable();
+            $table->string('keywords')->nullable()->index();
             $table->enum('status', [0,1,2])->default(0); //0 не опубликован, 1 опубликован, 2 заблокирован
             $table->enum('newest', [0,1])->default(0);
             $table->enum('hit', [0,1])->default(0); 
