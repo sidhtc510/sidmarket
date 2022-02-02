@@ -14,10 +14,10 @@ class MainController extends Controller
 // 
         // $products = Product::with('gallery')->get();
         // $categories = Category::with('product')->get();
-        $users = User::with('contact')->get();
+        // $users = User::with('contact')->get();
       
     //    dd($products);
-        return view('index', compact('users'));
+        return view('index');
         
     }
 }
