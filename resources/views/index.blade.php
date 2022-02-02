@@ -4,14 +4,6 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <a href="{{ route('dashboard') }}">DashBoard</a> <br>
-                <a href="{{ route('admin.index') }}">AdminPanel</a>
-            </div>
-            <div class="col-md-8">
-
-              
-
-
 
                 {{-- @foreach ($products as $product)
                     {{ $product->title }} принадлежит {{ $product->category->title }}<br>
@@ -34,11 +26,12 @@
                     Телефон: {{$user->contact->phonenumber}} <br>
                     -------------------------------<br>
                 @endforeach --}}
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 
             </div>
-
-
         </div>
     </div>
 @endsection
