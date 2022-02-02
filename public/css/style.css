@@ -1,0 +1,25 @@
+.toast-header {
+    padding: 0.1rem 0.75rem !important;
+}
+
+.toast {
+    opacity: 1 !important;
+}
+
+#toast {
+    /* transition: 1s; */
+    display: block;
+}
+
+.opac {
+    opacity: 0 !important;
+    display: none;
+}
+
+.closeToast {
+    cursor: pointer;
+    padding: 2px;
+    text-decoration: none;
+    color: #6c757d;
+    font-size: 18px;
+}

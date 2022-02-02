@@ -21,6 +21,6 @@ class AdminMiddleware
             return $next($request);
         }
         // abort(404);
-         return redirect(route('mainPage'))->with('flash_message', 'try to logged in as admin');
+         return redirect(route('mainPage'))->with('flash_message', 'Try to logged in as Administrator');
     }
 }

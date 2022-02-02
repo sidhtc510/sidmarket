@@ -20,6 +20,7 @@ class CreateBrandsTable extends Migration
             $table->string('image_brand')->default('no_brand_image.svg');
             $table->string('description')->nullable();
             $table->string('keywords')->nullable();
+            // $table->foreign('product_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

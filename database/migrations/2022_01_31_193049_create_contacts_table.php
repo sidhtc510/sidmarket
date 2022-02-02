@@ -23,9 +23,8 @@ class CreateContactsTable extends Migration
             $table->integer('housenumber')->nullable();
             $table->string('postalcode')->nullable();
             $table->string('city')->nullable();
-            $table->integer('phonenumber')->unique()->max(14)->min(6);
+            $table->string('phonenumber')->unique()->max(14)->min(6)->nullable();;
             $table->timestamp('dateofbirth')->nullable();
-            $table->integer('gender')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

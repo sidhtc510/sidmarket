@@ -15,6 +15,19 @@ class Product extends Model
     
     use HasFactory, Sluggable;
 
+
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function gallery()
+    {
+        return $this->hasMany(Gallery::class);
+    }
+
+
     public function sluggable(): array
     {
         return [

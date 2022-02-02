@@ -20,7 +20,10 @@
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+        
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -67,7 +70,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                 document.getElementById('logout-form').submit();">
+                                                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -88,12 +91,31 @@
 
 
 
+
+            {{-- <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button> --}}
+
             @if ($message = Session::get('flash_message'))
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>{{ $message }}</strong>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <div id="toast" class="toast position-fixed bottom-0 end-0 p-2 m-3" role="alert" aria-live="assertive"
+                    aria-atomic="true">
+                    <div class="toast-header">
+                        {{-- <img src="..." class="rounded me-2" alt="..."> --}}
+                        <strong class="me-auto">Notification</strong>
+                        {{-- <small>now</small> --}}
+                        <a class="closeToast" onclick="document.getElementById('toast').className = 'opac';"><i class="bi bi-x-circle"></i></a>
+                    </div>
+                    <div class="toast-body">
+                        {{ $message }}
+                    </div>
                 </div>
+
+
+
+
+
             @endif
+
+
+
 
         </main>
     </div>
@@ -107,6 +129,7 @@
     </script>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="js/script.js" defer></script>
 </body>
 
 </html>
