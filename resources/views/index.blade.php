@@ -26,6 +26,10 @@
                     Телефон: {{$user->contact->phonenumber}} <br>
                     -------------------------------<br>
                 @endforeach --}}
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
 
             </div>
         </div>
