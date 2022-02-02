@@ -22,7 +22,7 @@
                 @endforeach --}}
 
 
-                @foreach ($users as $user)
+                {{-- @foreach ($users as $user)
                     <b>{{ $user->email }} контакты:<br></b>
                     Имя: {{ $user->contact->firstname }}<br>
                     Отчество: {{ $user->contact->middle }}<br>
@@ -33,7 +33,7 @@
                     Адрес: {{ $user->contact->address }} {{ $user->contact->housenumber }}<br>
                     Телефон: {{$user->contact->phonenumber}} <br>
                     -------------------------------<br>
-                @endforeach
+                @endforeach --}}
 
 
             </div>
