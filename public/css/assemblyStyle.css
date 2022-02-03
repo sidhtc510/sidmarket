@@ -1,0 +1,83 @@
+a {
+    color: rgba(0, 0, 0, .55);
+}
+
+a:hover {
+    color: rgba(0, 0, 0, .8);
+    ;
+}
+
+
+/* *****************************************************************************************
+* Всплывающее уведомление в правом нижнем углу START 
+*
+*
+*/
+
+.toast-header {
+    padding: 0.1rem 0.75rem !important;
+}
+
+.toast {
+    opacity: 1 !important;
+}
+
+#toast {
+    /* transition: 1s; */
+    display: block;
+}
+
+.opac {
+    opacity: 0 !important;
+    display: none;
+}
+
+.closeToast {
+    cursor: pointer;
+    padding: 2px;
+    text-decoration: none;
+    color: #6c757d;
+    font-size: 18px;
+}
+
+
+/* 
+*
+*
+* Всплывающее уведомление в правом нижнем углу END 
+***************************************************************************************** */
+
+
+/* 
+* *****************************************************************************************
+* Всплывающее меню START
+*
+*/
+
+.container-dropdown {
+    margin-top: 10px;
+}
+
+
+/* .dropdown_toggle {
+    color: rgba(0, 0, 0, .55);
+} */
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin: 0px 0px 0 -210px;
+    margin-top: 0;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+    min-width: 15rem;
+}
+
+.btnLogout:focus {
+    box-shadow: none;
+}
+
+
+/* 
+*
+*
+* Всплывающее меню END
+***************************************************************************************** */
