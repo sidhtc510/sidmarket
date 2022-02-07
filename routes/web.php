@@ -6,6 +6,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\admin\MainController as adminMainController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +22,8 @@ use App\Http\Controllers\admin\MainController as adminMainController;
 /**
  * 
  *  Laravel Auth
- * https://laravelarticle.com/laravel-8-authentication-tutorial
- * 
+ * https://laravelarticle.com/laravel-8-authentication-tutorial    -- *** AUTH USER
+ * https://www.youtube.com/watch?v=oOGG7zViYng&list=WL&index=3     -- *** Email Verify
  */
 Auth::routes(['verify' => true]);
 
@@ -37,7 +38,7 @@ Auth::routes(['verify' => true]);
  */
 Route::get('/', [MainController::class, 'index'])->name('mainPage');
 Route::get('/dashboard', [CabinetController::class, 'index'])->name('dashboard');
-
+Route::get('/product', [ProductController::class, 'index'])->name('product');
 
 
   
