@@ -24,7 +24,7 @@ use App\Http\Controllers\admin\MainController as adminMainController;
  * https://laravelarticle.com/laravel-8-authentication-tutorial
  * 
  */
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 
 
@@ -58,14 +58,3 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     // Route::resource('/sliders', SliderController::class);
 });
 /****************************************************/
-
-
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
