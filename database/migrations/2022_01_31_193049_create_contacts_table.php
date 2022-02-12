@@ -15,7 +15,7 @@ class CreateContactsTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('user_id')->unique()->unsigned();
             $table->string('firstname')->require;
             $table->string('middle')->nullable();
             $table->string('lastname')->require;
@@ -23,7 +23,7 @@ class CreateContactsTable extends Migration
             $table->integer('housenumber')->nullable();
             $table->string('postalcode')->nullable();
             $table->string('city')->nullable();
-            $table->string('phonenumber')->unique()->max(14)->min(6)->nullable();;
+            $table->string('phonenumber')->max(14)->min(6)->nullable();;
             $table->timestamp('dateofbirth')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

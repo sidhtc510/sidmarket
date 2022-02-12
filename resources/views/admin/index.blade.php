@@ -1,10 +1,10 @@
-@extends('admin.layouts.layout')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h3>this is admin dashboard</h3>
+                {{-- <a href="{{route('addProduct')}}">Add New Product</a> --}}
             </div>
         </div>
     </div>

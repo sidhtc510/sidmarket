@@ -12,12 +12,12 @@ class MainController extends Controller
 {
     public function index(){
 // 
-        // $products = Product::with('gallery')->get();
+        $products = Product::with('gallery', 'category')->paginate(20);
         // $categories = Category::with('product')->get();
         // $users = User::with('contact')->get();
       
     //    dd($products);
-        return view('index');
+        return view('index', compact('products'));
         
     }
 }

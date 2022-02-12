@@ -1,15 +1,16 @@
-@include('generalLayout.head')
+@include('layouts.head')
 
 
 <body>
     <div id="app">
-        @include('generalLayout.topPanel')
+        @include('layouts.topPanel')
 
         <main class="py-4">
-            @yield('content')
+            
+                @yield('content')
+            
 
-
-            @include('generalLayout.notification')
+            @include('layouts.notification')
         </main>
     </div>
 
@@ -21,5 +22,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="js/script.js" defer></script>
 </body>
+
+
 
 </html>

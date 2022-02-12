@@ -37,8 +37,8 @@ Auth::routes(['verify' => true]);
  * 
  */
 Route::get('/', [MainController::class, 'index'])->name('mainPage');
-Route::get('/dashboard', [CabinetController::class, 'index'])->name('dashboard');
-Route::get('/product', [ProductController::class, 'index'])->name('product');
+Route::resource('/dashboard', CabinetController::class);
+Route::resource('/product/{slug}', ProductController::class);
 
 
   
@@ -50,7 +50,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
   Route::get('/', [adminMainController::class, 'index'])->name('admin.index');
     // Route::resource('/categories', CategoryController::class);
     // Route::resource('/tags', TagController::class);
-    // Route::resource('/posts', PostController::class);
+    Route::resource('/product', ProductController::class);
     // Route::resource('/users', AdminUserController::class);
     // Route::get('/delImg', [PostController::class, 'destroyImg'])->name('destroyImage');
     // Route::get('/cc', [ClearCacheController::class, 'index'])->name('clearCache');
