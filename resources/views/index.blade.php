@@ -33,7 +33,7 @@
                                         the
                                         bulk of
                                         the card's content.</p>
-                                    {{-- <a href="{{ route('product.show', ['slug' => $product->slug]) }}" --}}
+                                    <a href="{{ route('product.show', $product->slug)}}"
                                         class="btn btn-primary">Go somewhere</a>
                                 </div>
                             </div>
