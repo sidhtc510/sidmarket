@@ -6,11 +6,8 @@
         @include('layouts.topPanel')
 
         <main class="py-4">
-            
-                @yield('content')
-            
-
             @include('layouts.notification')
+                @yield('content')
         </main>
     </div>
 
