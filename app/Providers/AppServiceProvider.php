@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
+// use App\Models\Product;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,5 +27,17 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+
+
+
+        view()->composer('layouts.categoriesMenu', function ($view) {
+            /****
+             * дерево категорий
+             */
+            $categories = Category::whereNull('category_id')
+                ->with('childrenCategories')
+                ->get();
+            $view->with('categories', $categories);
+        });
     }
 }

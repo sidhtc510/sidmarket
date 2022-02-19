@@ -5,8 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CabinetController;
-use App\Http\Controllers\admin\MainController as adminMainController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryFrontController;
+use App\Http\Controllers\admin\MainController as adminMainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,8 @@ Auth::routes(['verify' => true]);
 Route::get('/', [MainController::class, 'index'])->name('mainPage');
 Route::resource('/dashboard', CabinetController::class);
 Route::resource('/product', ProductController::class);
+
+Route::get('/category/{slug}', [CategoryFrontController::class, 'show'])->name('categories.single');
 
 
   

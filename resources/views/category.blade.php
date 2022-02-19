@@ -24,15 +24,19 @@
                     </div>
 
 
+                    
+<p>Страница категории</p>
+<p>Вывод товаров определенной категории</p>
+
 
                     <div class="productGrid">
 
 
-                        @foreach ($products as $product)
+                        {{-- @foreach ($products as $product) --}}
 
 
-                            <div class="card productCard">
-                                {{-- <img src="..." class="card-img-top" alt="..."> --}}
+                            {{-- <div class="card productCard">
+                  
 
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $product->title }}</h5>
@@ -43,39 +47,11 @@
                                     <a href="{{ route('product.show', $product->slug)}}"
                                         class="btn btn-primary">Go somewhere</a>
                                 </div>
-                            </div>
-                        @endforeach
-
-
-
-
-
+                            </div> --}}
+                        {{-- @endforeach --}}
 
 
                     </div>
-
-
-                    {{-- @foreach ($products as $product)
-                    {{ $product->title }} принадлежит {{ $product->category->title }}<br>
-                    @foreach ($product->gallery as $gallery)
-                        картинки {{ $gallery->image_from_gallery }} <br>
-                    @endforeach
-                    -------------------------------<br>
-                @endforeach --}}
-
-
-                    {{-- @foreach ($users as $user)
-                    <b>{{ $user->email }} контакты:<br></b>
-                    Имя: {{ $user->contact->firstname }}<br>
-                    Отчество: {{ $user->contact->middle }}<br>
-                    Фамилия: {{ $user->contact->lastname }}<br>
-                    <b>Адрессные данные: </b>   <br>
-                    индекс: {{ $user->contact->postalcode }}<br>
-                    Город: {{ $user->contact->city }}<br>
-                    Адрес: {{ $user->contact->address }} {{ $user->contact->housenumber }}<br>
-                    Телефон: {{$user->contact->phonenumber}} <br>
-                    -------------------------------<br>
-                @endforeach --}}
 
                 </div>
             </div>
@@ -83,7 +59,7 @@
     </div>
 
     <footer class="mt-auto">
-        {{ $products->links() }}
+        {{-- {{ $products->links() }} --}}
     </footer>
 
 
