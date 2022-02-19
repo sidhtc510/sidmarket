@@ -12,7 +12,7 @@ class CategoryFrontController extends Controller
     
     public function show($slug)
     {
-        $category = Category::where('slug', $slug)->with('childrenCategories')->get()->toArray();
+        $category = Category::where('slug', $slug)->with('childrenCategories')->firstOrFail();
         // dd($category);
         // $products = $category->products()->orderBy('id', 'desc')->get();
         
