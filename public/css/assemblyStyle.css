@@ -84,3 +84,25 @@ body {
 .modal-content {
     height: 90vh;
 }
+
+.productGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    justify-items: center;
+    grid-gap: 10px;
+}
+
+.productCard {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    cursor: pointer;
+}
+
+.leftbar {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* min-width: 20vw; */
+    float: left;
+    padding: 0 0.75rem;
+}

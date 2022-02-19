@@ -17,14 +17,32 @@
                         </div>
                     @endif
 
+                    <div class="leftbar">
 
-                    <div class="row justify-content-left">
+                        <ul>
+                            <li><a href="ap.php">to the ap.php</a></li>
+                            <li>testtesttest</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                        </ul>
+    
+                    </div>
+
+
+
+                    <div class="productGrid">
 
 
                         @foreach ($products as $product)
 
 
-                            <div class="card m-2" style="width: 18rem;">
+                            <div class="card productCard">
                                 {{-- <img src="..." class="card-img-top" alt="..."> --}}
 
                                 <div class="card-body">
