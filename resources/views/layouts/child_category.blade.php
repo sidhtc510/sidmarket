@@ -3,8 +3,7 @@
 
 
 <li>
-    <a 
-        href="{{ route('categories.single', ['slug' => $child_category->slug]) }}">{{ $child_category->title }}</a>
+    <a href="{{ route('categories.single', ['slug' => $child_category->slug]) }}">{{ $child_category->title }}</a>
 </li>
 @if ($child_category->categories)
     <ul>

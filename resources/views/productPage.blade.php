@@ -21,10 +21,12 @@
                         <tr>
                             <th scope="row">{{ $product->id_postavschika }}</th>
                             <td>{{ $product->title }}</td>
-                            <td>{{ $product->category->title }}</td>
+                           
+                            <td> <a
+                                href="{{ route('categories.single', ['slug' => $product->category->slug]) }}">{{ $product->category->title }}</a></td>
                             <td>
                                 @foreach ($product->gallery as $image)
-                                    <a href="#">{{$image->image_from_gallery}}</a>
+                                    <a href="#">{{ $image->image_from_gallery }}</a>
                                 @endforeach
                             </td>
 
