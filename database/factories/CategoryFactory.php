@@ -20,7 +20,7 @@ class CategoryFactory extends Factory
         return [
             
             
-            'title' => $this->faker->name(),
+            'title' => 'Cat' . $this->faker->name(),
             // 'category_id' => $this->faker->numberBetween(0,1),
             'slug' => $this->faker->name(),
         ];

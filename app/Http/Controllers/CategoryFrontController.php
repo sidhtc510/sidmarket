@@ -21,7 +21,7 @@ class CategoryFrontController extends Controller
         
         return view('category', compact('category', 'products'));
 
-        $products = Product::where('id', '=', $category->id)->get();
+        // $products = Product::where('id', '=', $category->id)->get();
 
 
 
