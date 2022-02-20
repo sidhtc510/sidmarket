@@ -15,37 +15,13 @@ class CategoryFrontController extends Controller
     public function show($slug)
     {
         $category = Category::where('slug', $slug)->with('childrenCategories')->firstOrFail();
-
-        // dd($category);
-        $products = $category->products()->orderBy('id', 'desc')->get();
         
-        return view('category', compact('category', 'products'));
+        $products = $category->products()->orderBy('id', 'desc')->get();
+       
+        echo " CATEGORY";
+        dump($category);
 
-        // $products = Product::where('id', '=', $category->id)->get();
-
-
-
-
-        // $products = Product::all();
-        //         $categories = Category::all();
-
-        //     	return view('front.catalog.great-detail')->with('products', $products)->with('categories', $categories);
-        //     }
-
-        //     public function detail($slug){
-
-        //         $product = Product::where('slug', '=', $slug)->first();
-        //$category = Category::subCategory()->where('category_id', 'category_id')->where('slug', '!=' , $product->slug)->take(4)->inRandomOrder()->get();
-
-
-
-
-        // $products = $category->products()->orderBy('id', 'desc')->get();
-
-        // echo "dump CATEGORY";
-        // dump($category);
-
-        // echo"dd PRODUCTS";
+        echo" PRODUCTS";
         dump($products);
 
         return view('category', compact('category', 'products'));
@@ -67,6 +43,5 @@ class CategoryFrontController extends Controller
                 dump($x);
             }
         }
-
     }
 }

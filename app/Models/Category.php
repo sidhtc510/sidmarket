@@ -11,34 +11,35 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends Model
 {
     use HasFactory, Sluggable;
-   
+
     protected $fillable = [
-        'title' 
+        'title'
     ];
 
 
-     // Категории бесконечной вложенности при помощи рекурсивных отношений hasMany
+    // Категории бесконечной вложенности при помощи рекурсивных отношений hasMany
     // https://laravel.demiart.ru/recursive-hasmany-relationship-with-unlimited-subcategories/
-    public function categories() 
+    public function categories()
     {
         return $this->hasMany(Category::class)->with('childrenCategories');
     }
 
     public function childrenCategories()
     {
-       return  $this->hasMany(Category::class)->with('categories');
-      
+        return  $this->hasMany(Category::class)->with('categories');
     }
 
     public function parentCategory()
     {
-       return  $this->belongsTo(Category::class, 'category_id', 'id');
+        return  $this->belongsTo(Category::class, 'category_id', 'id');
     }
-  
+
 
     public function products()
     {
-        return $this->hasMany(Product::class);
+        $ttt =  $this->hasMany(Product::class);
+        // dump($ttt);
+        return $ttt;
     }
 
     public function sluggable(): array
@@ -49,5 +50,4 @@ class Category extends Model
             ]
         ];
     }
-
 }

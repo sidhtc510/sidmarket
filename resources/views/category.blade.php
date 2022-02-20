@@ -25,6 +25,11 @@
 
 
 <p>Страница категории <strong>{{$category->title}}</strong></p>
+{{-- @foreach ($category->childrenCategories as $item)
+    {{$item->slug}} <br>
+@endforeach --}}
+
+
 <p>Вывод товаров определенной категории</p>
 
 
