@@ -6,31 +6,8 @@
         </a>
 
         <div class="logRegbtn">
-            {{-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav me-auto">
-
-            </ul> --}}
-
-            <!-- Right Side Of Navbar -->
-
-
-
-            <!-- Authentication Links -->
             @guest
-                {{-- @if (Route::has('login'))
-                    <a class="" href="{{ route('login') }}"><i class="bi bi-box-arrow-in-right"></i>
-                        {{ __('Вход') }}</a>
-                @endif
-                @if (Route::has('register'))
-                    <a class="" href="{{ route('register') }}"><i class="bi bi-person-plus"></i>
-                        {{ __('Регистрация') }}</a>
-                @endif --}}
 
                 <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <i class="bi bi-person-fill"></i>

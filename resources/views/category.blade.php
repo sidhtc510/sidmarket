@@ -24,7 +24,6 @@
                     </div>
 
 
-{{-- @dd($category) --}}
 <p>Страница категории <strong>{{$category->title}}</strong></p>
 <p>Вывод товаров определенной категории</p>
 
@@ -32,10 +31,10 @@
                     <div class="productGrid">
 
 
-                        {{-- @foreach ($products as $product) --}}
+                        @foreach ($products as $product)
 
 
-                            {{-- <div class="card productCard">
+                            <div class="card productCard">
                   
 
                                 <div class="card-body">
@@ -47,8 +46,8 @@
                                     <a href="{{ route('product.show', $product->slug)}}"
                                         class="btn btn-primary">Go somewhere</a>
                                 </div>
-                            </div> --}}
-                        {{-- @endforeach --}}
+                            </div>
+                        @endforeach
 
 
                     </div>
