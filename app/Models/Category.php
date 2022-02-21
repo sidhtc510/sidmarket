@@ -37,9 +37,8 @@ class Category extends Model
 
     public function products()
     {
-        $ttt =  $this->hasMany(Product::class);
-        // dump($ttt);
-        return $ttt;
+        return $this->hasMany(Product::class);
+        
     }
 
     public function sluggable(): array

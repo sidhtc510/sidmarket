@@ -10,19 +10,24 @@ use Illuminate\Support\Collection;
 class CategoryFrontController extends Controller
 {
 
-
+    public $subProduct;
 
     public function show($slug)
     {
         $category = Category::where('slug', $slug)->with('childrenCategories')->firstOrFail();
-        
-        $products = $category->products()->orderBy('id', 'desc')->get();
-       
-        echo " CATEGORY";
-        dump($category);
 
-        echo" PRODUCTS";
-        dump($products);
+        $products = $category->products()->orderBy('id', 'desc')->get();
+
+
+
+        foreach ($category->childrenCategories as $item) {
+            $subProduct = $item->products()->orderBy('id', 'desc')->get();
+            // dump($subProduct);
+
+            $collection = collect($products);
+            $products = $collection->merge($subProduct);
+        }
+        
 
         return view('category', compact('category', 'products'));
     }

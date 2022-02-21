@@ -24,7 +24,7 @@
                     </div>
 
 
-<p>Страница категории <strong>{{$category->title}}</strong></p>
+<p>Страница категории Id <strong>{{$category->id}}</strong> назв: <strong>{{$category->title}}</strong></p>
 {{-- @foreach ($category->childrenCategories as $item)
     {{$item->slug}} <br>
 @endforeach --}}
