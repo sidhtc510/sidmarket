@@ -16,37 +16,10 @@ class CategoryFrontController extends Controller
     {
         $category = Category::where('slug', $slug)->with('childrenCategories')->firstOrFail();
 
-        $products = $category->products()->orderBy('id', 'desc')->get();
-
-
-
-        foreach ($category->childrenCategories as $item) {
-            $subProduct = $item->products()->orderBy('id', 'desc')->get();
-            // dump($subProduct);
-
-            $collection = collect($products);
-            $products = $collection->merge($subProduct);
-        }
-        
-
+        // $products = Product::where('category_id', $category->id)->orderBy('id', 'desc')->get();
+        // dump($products);
+        $products = $category->products()->orderBy('id', 'desc')->paginate(4);
+      
         return view('category', compact('category', 'products'));
-    }
-
-
-
-    public function coll()
-    {
-        $collect = collect(['kley' => [
-            ['name' => 'JavaScript: The Good Parts', 'pages' => 176],
-            ['name' => 'JavaScript: The Definitive Guide', 'pages' => 1096],
-        ]]);
-
-        foreach ($collect as $array) {
-            dump($array);
-            echo '<hr>';
-            foreach ($array as $x) {
-                dump($x);
-            }
-        }
     }
 }

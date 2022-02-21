@@ -42,8 +42,6 @@ Route::resource('/dashboard', CabinetController::class);
 Route::resource('/product', ProductController::class);
 
 Route::get('/category/{slug}', [CategoryFrontController::class, 'show'])->name('categories.single');
-Route::get('/coll', [CategoryFrontController::class, 'coll']);
-
 
   
 /**

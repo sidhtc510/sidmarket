@@ -24,6 +24,7 @@
                     </div>
 
 
+                    
 <p>Страница категории Id <strong>{{$category->id}}</strong> назв: <strong>{{$category->title}}</strong></p>
 {{-- @foreach ($category->childrenCategories as $item)
     {{$item->slug}} <br>
@@ -63,7 +64,7 @@
     </div>
 
     <footer class="mt-auto">
-        {{-- {{ $products->links() }} --}}
+        {{ $products->links() }}
     </footer>
 
 
