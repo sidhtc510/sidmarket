@@ -18,7 +18,7 @@ class CategoryFrontController extends Controller
 
         // $products = Product::where('category_id', $category->id)->orderBy('id', 'desc')->get();
         // dump($products);
-        $products = $category->products()->orderBy('id', 'desc')->paginate(10);
+        $products = $category->products()->orderBy('id', 'desc')->paginate(8);
       
         return view('category', compact('category', 'products'));
     }
