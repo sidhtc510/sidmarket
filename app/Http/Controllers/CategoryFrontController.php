@@ -15,9 +15,6 @@ class CategoryFrontController extends Controller
     public function show($slug)
     {
         $category = Category::where('slug', $slug)->with('childrenCategories')->firstOrFail();
-
-        // $products = Product::where('category_id', $category->id)->orderBy('id', 'desc')->get();
-        // dump($products);
         $products = $category->products()->orderBy('id', 'desc')->paginate(8);
       
         return view('category', compact('category', 'products'));

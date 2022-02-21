@@ -9,6 +9,10 @@ a,
     box-shadow: none
 }
 
+.btn {
+    border-radius: 6px;
+}
+
 a:hover,
 .btnLogout:hover {
     color: rgba(0, 0, 0, .8);
