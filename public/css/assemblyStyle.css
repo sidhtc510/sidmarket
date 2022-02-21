@@ -39,8 +39,13 @@ body {
 
 .wrapper {
     margin: 0 auto;
-    max-width: 1400px;
+    max-width: 1920px;
     min-height: 80vh!important;
+}
+
+.topPanel {
+    margin: 0 auto;
+    max-width: 1920px;
 }
 
 .card {
