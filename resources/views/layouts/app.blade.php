@@ -10,7 +10,10 @@
         <main class="py-4">
             @include('layouts.notification')
 
-                @yield('content')
+
+            <div class="wrapper d-flex flex-wrap">
+                <div class="container-fluid mw-90">
+                    @yield('content')
         </main>
     </div>
 

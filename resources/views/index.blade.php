@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="wrapper d-flex flex-wrap">
-        <div class="container-fluid mw-90">
+   
             <div class="row justify-content-center">
                 <div class="col-md-12">
 
