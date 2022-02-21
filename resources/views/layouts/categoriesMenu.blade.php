@@ -4,7 +4,14 @@
 
 <ul>
     @foreach ($categories as $category)
-        <li><a href="{{ route('categories.single', ['slug' => $category->slug]) }}">{{ $category->title }}</a>
+    
+    {{-- @if ($category->slug !=  null)
+        @php
+        echo url()->current();
+            $activeClass = 'alert-link';
+        @endphp
+    @endif --}}
+        <li><a class="{{ (request()->segment(2) == $category->slug) ? 'text-primary' : '' }}" href="{{ route('categories.single', ['slug' => $category->slug]) }}">{{ $category->title }}</a> <small class="text-muted">({{$category->products_count}})</small>
             <ul>
 
                 @foreach ($category->childrenCategories as $childCategory)
