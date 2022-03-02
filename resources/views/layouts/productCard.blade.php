@@ -1,7 +1,7 @@
 <div class="card productCard"><a href="{{ route('product.show', $product->slug) }}">
         <div class="card-body">
             <h5 class="card-title">{{ $product->title }}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up
+            <p class="card-text"> Some quick example text to build on the card title and make up
                 the
                 bulk of
                 the card's contentthe card's contentthe card's content.</p>

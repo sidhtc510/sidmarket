@@ -16,7 +16,16 @@ class CategoryFrontController extends Controller
     {
         $category = Category::where('slug', $slug)->with('childrenCategories')->firstOrFail();
         $products = $category->products()->orderBy('id', 'desc')->paginate(8);
-      
+
+
+// foreach($category->childrenCategories as $item){
+//     dump($item->id);
+// }
+// die;
+
+    
+
+
         return view('category', compact('category', 'products'));
     }
 }

@@ -11,7 +11,8 @@ class Product extends Model
 {
 
     protected $fillable = [
-        'title' 
+        'title',
+        'category_id'
     ];
     
     use HasFactory, Sluggable;

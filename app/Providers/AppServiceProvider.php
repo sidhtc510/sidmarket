@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Category;
 // use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,6 +30,13 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
 
+
+
+        // DB::listen(function ($query) {
+        //     dump($query->sql, $query->bindings);
+        // });
+
+        
 
         view()->composer('layouts.categoriesMenu', function ($view) {
             /****

@@ -22,7 +22,7 @@
             </div>
 
 
-
+{{-- @dd($products) --}}
 
             {{-- @foreach ($category->childrenCategories as $item)
     {{$item->slug}} <br>
