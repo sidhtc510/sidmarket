@@ -41,7 +41,7 @@ Route::get('/', [MainController::class, 'index'])->name('mainPage');
 Route::resource('/dashboard', CabinetController::class);
 Route::resource('/product', ProductController::class);
 
-Route::get('/category/{slug}/{id?}', [CategoryFrontController::class, 'show'])->name('categories.single');
+Route::get('/category/{slug}', [CategoryFrontController::class, 'show'])->name('categories.single');
 
   
 /**

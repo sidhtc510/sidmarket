@@ -10,22 +10,16 @@ use Illuminate\Support\Collection;
 class CategoryFrontController extends Controller
 {
 
-    public $subProduct;
+    
 
     public function show($slug)
     {
-        $category = Category::where('slug', $slug)->with('childrenCategories')->firstOrFail();
-        $products = $category->products()->orderBy('id', 'desc')->paginate(8);
 
+        // $category = Category::where('slug', $slug)->with('childrenCategories')->firstOrFail();
+        // $products = $category->products()->orderBy('id', 'desc')->paginate(8);
 
-// foreach($category->childrenCategories as $item){
-//     dump($item->id);
-// }
-// die;
-
-    
-
-
+        $category = Category::where('slug', $slug)->firstOrFail();
+        $products = $category->getAllProducts();
         return view('category', compact('category', 'products'));
     }
 }

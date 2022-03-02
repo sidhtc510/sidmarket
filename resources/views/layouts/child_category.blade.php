@@ -1,9 +1,7 @@
 {{-- шаблон вложенных чилд категорий 
 весь код ниже инклюдится в categoriesMenu.blade.php --}}
-
-
 <li>
-    <a class="{{ (request()->segment(2) == $child_category->slug) ? 'text-primary' : '' }}" href="{{ route('categories.single', ['slug' => $child_category->slug, 'id' => $child_category->id]) }}">{{ $child_category->title }}</a> <small class="text-muted">({{$child_category->products_count}})</small>
+    <a class="{{ (request()->segment(2) == $child_category->slug) ? 'text-primary' : '' }}" href="{{ route('categories.single', ['slug' => $child_category->slug]) }}">{{ $child_category->title }}</a> <small class="text-muted"></small>
 </li>
 @if ($child_category->categories)
     <ul>
