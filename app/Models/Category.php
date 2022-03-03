@@ -80,7 +80,7 @@ class Category extends Model
         $categoryIds = $this->getAllChildren()->pluck('id')->toArray();
         array_push($categoryIds, $this->id);
 
-        return Product::whereIn('category_id', $categoryIds)->orderBy('id', 'desc')->paginate(10);
+        return Product::whereIn('category_id', $categoryIds)->orderBy('id', 'desc')->paginate(30);
     }
 // END рекурсивный вывод товаров на странице category 
 

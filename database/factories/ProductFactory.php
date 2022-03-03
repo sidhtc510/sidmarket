@@ -21,7 +21,7 @@ class ProductFactory extends Factory
         $x = 'product ' . $this->faker->lastName();
         return [
             'title' => $x,
-            'category_id' => $this->faker->numberBetween(1, 30),
+            'category_id' => $this->faker->numberBetween(1, 96),
             'slug' => SlugService::createSlug(Product::class, 'slug', $x),
         ];
     }

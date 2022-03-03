@@ -37,3 +37,18 @@ var myInput = document.getElementById('myInput')
 myModal.addEventListener('shown.bs.modal', function() {
     myInput.focus()
 })
+
+
+
+
+$('.treeview').each(function() {
+    var shouldExpand = false
+    $(this).find('li').each(function() {
+        if ($(this).hasClass('active')) {
+            shouldExpand = true
+        }
+    })
+    if (shouldExpand) {
+        $(this).addClass('active')
+    }
+})

@@ -45,6 +45,6 @@
     </div>
 
     <footer class="mt-auto">
-        {{ $products->links() }}
+        {{ $products->links() ?? '' }}
     </footer>
 @endsection

@@ -20,6 +20,9 @@ class CategoryFrontController extends Controller
 
         $category = Category::where('slug', $slug)->firstOrFail();
         $products = $category->getAllProducts();
+
+        // dd($products);
+
         return view('category', compact('category', 'products'));
     }
 }
