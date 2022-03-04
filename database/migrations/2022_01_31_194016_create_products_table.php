@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateProductsTable extends Migration
 {
@@ -18,11 +19,11 @@ class CreateProductsTable extends Migration
             $table->string('id_postavschika')->nullable();
             $table->string('title')->nullable()->index();
             $table->string('slug')->nullable()->index();
-            $table->integer('category_id'); // привязать к таблице с категориями
+            $table->integer('category_id')->nullable(); // привязать к таблице с категориями
             $table->float('price', 8, 2)->default(0)->unsigned();
-            $table->float('price_old', 8, 2)->default(0)->unsigned();
-            $table->string('description_short')->nullable()->index();
-            $table->string('description')->nullable()->index();
+            $table->float('price_new', 8, 2)->default(0)->unsigned();
+            $table->text('description_short')->nullable();
+            $table->text('description')->nullable();
             $table->integer('brand_id')->nullable();
             $table->string('image_main')->default('no_image.svg'); // главная картинка
             $table->string('keywords')->nullable()->index();
@@ -32,6 +33,7 @@ class CreateProductsTable extends Migration
             $table->string('related_product')->nullable();
             $table->timestamps();
         });
+        DB::statement('ALTER TABLE Products ADD FULLTEXT search(title, description_short, description)');
     }
 
     /**

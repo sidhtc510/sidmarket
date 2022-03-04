@@ -25,7 +25,8 @@
                         <td> <a
                                 href="{{ route('categories.single', ['slug' => $product->category->slug]) }}">{{ $product->category->title }}</a>
                         </td>
-                        <td>
+                        <td><a href="#">{{$product->image_main}}</a>
+                            
                             @foreach ($product->gallery as $image)
                                 <a href="#">{{ $image->image_from_gallery }}</a>
                             @endforeach
@@ -36,6 +37,14 @@
 
                 </tbody>
             </table>
+            <div>
+                <h2>Short Description</h2>
+                {{$product->description_short}}
+            </div>
+            <div>
+                <h2>Long Description</h2>
+                {{$product->description}}
+            </div>
 
 
 

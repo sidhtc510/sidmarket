@@ -11,10 +11,25 @@ class Product extends Model
 {
 
     protected $fillable = [
+        'id_postavschika',
         'title',
-        'category_id'
+        // 'slug',
+        'category_id',
+        'price',
+        'price_new',
+        'description_short',
+        'description',
+        'brand_id',
+        'image_main',
+        'keywords',
+        // 'status',
+        // 'newest',
+        // 'hit',
+        // 'related_product',
     ];
-    
+
+    // protected $guarded = [];
+
     use HasFactory, Sluggable;
 
 
@@ -38,5 +53,4 @@ class Product extends Model
             ]
         ];
     }
-    
 }

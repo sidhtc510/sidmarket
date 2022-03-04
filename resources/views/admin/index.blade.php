@@ -2,11 +2,7 @@
 
 @section('content')
     {{-- <div class="container"> --}}
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-               <h1>Admin index</h1>
-            </div>
-        </div>
+        <a class="btn btn-primary" href="{{route('admin.importExcel')}}" role="button">Импорт товаров Excel</a>
     </div>
     </div>
 

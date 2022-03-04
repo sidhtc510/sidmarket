@@ -15,7 +15,9 @@ class Category extends Model
     use HasFactory, Sluggable;
 
     protected $fillable = [
-        'title'
+        'id',
+        'title',
+        'category_id',
     ];
 
 
@@ -46,10 +48,10 @@ class Category extends Model
 
 
 
-// // START рекурсивный вывод товаров на странице category 
-// https://ru.stackoverflow.com/questions/1383922/laravel-%d0%b2%d1%8b%d0%b2%d0%be%d0%b4-%d0%bf%d1%80%d0%be%d0%b4%d1%83%d0%ba%d1%82%d0%be%d0%b2-%d0%b8%d0%b7-%d0%b4%d0%be%d1%87%d0%b5%d1%80%d0%bd%d0%b5%d0%b9-%d0%b8-%d1%80%d0%be%d0%b4%d0%b8%d1%82%d0%b5%d0%bb%d1%8c%d1%81%d0%ba%d0%be%d0%b9-%d0%ba%d0%b0%d1%82%d0%b5%d0%b3%d0%be%d1%80%d0%b8%d0%b9
+    // // START рекурсивный вывод товаров на странице category 
+    // https://ru.stackoverflow.com/questions/1383922/laravel-%d0%b2%d1%8b%d0%b2%d0%be%d0%b4-%d0%bf%d1%80%d0%be%d0%b4%d1%83%d0%ba%d1%82%d0%be%d0%b2-%d0%b8%d0%b7-%d0%b4%d0%be%d1%87%d0%b5%d1%80%d0%bd%d0%b5%d0%b9-%d0%b8-%d1%80%d0%be%d0%b4%d0%b8%d1%82%d0%b5%d0%bb%d1%8c%d1%81%d0%ba%d0%be%d0%b9-%d0%ba%d0%b0%d1%82%d0%b5%d0%b3%d0%be%d1%80%d0%b8%d0%b9
 
-// дополнение https://stackoverflow.com/questions/38195241/how-do-i-get-all-children-that-fall-under-a-parent-in-eloquent
+    // дополнение https://stackoverflow.com/questions/38195241/how-do-i-get-all-children-that-fall-under-a-parent-in-eloquent
 
 
     public function children(): HasMany
@@ -80,9 +82,9 @@ class Category extends Model
         $categoryIds = $this->getAllChildren()->pluck('id')->toArray();
         array_push($categoryIds, $this->id);
 
-        return Product::whereIn('category_id', $categoryIds)->orderBy('id', 'desc')->paginate(30);
+        return Product::whereIn('category_id', $categoryIds)->orderBy('id', 'desc')->paginate(15);
     }
-// END рекурсивный вывод товаров на странице category 
+    // END рекурсивный вывод товаров на странице category 
 
 
 

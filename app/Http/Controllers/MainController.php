@@ -12,7 +12,7 @@ class MainController extends Controller
 {
     public function index(){
 // 
-        $products = Product::with('gallery', 'category')->orderBy('id', 'desc')->paginate(20);
+        $products = Product::with('gallery', 'category')->orderBy('id', 'desc')->paginate(30);
         // $categories = Category::with('product')->get();
         // $users = User::with('contact')->get();
       

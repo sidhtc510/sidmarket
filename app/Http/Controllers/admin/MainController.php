@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Exports\ProductsExport;
+use App\Imports\ProductsImport;
+use App\Imports\CategoriesImport;
+use App\Http\Controllers\Controller;
+use App\Models\Category;
+use Maatwebsite\Excel\Facades\Excel;
+
 
 class MainController extends Controller
 {
@@ -13,7 +19,7 @@ class MainController extends Controller
         $this->middleware(['auth', 'verified']);
     }
 
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -24,69 +30,43 @@ class MainController extends Controller
         return view('admin.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function importExcel()
     {
-        //
+        return view('admin.importExcel');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function importProductsExcelStore(Request $request)
     {
-        //
+        $importedFile = $request->file('importedFile');
+        Excel::import(new ProductsImport, $importedFile);
+
+        return view('admin.importExcel')->with('flash_message', 'Import good!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function importCategoriesExcelStore(Request $request)
     {
-        //
+        $importedFile = $request->file('importedFile');
+        Excel::import(new CategoriesImport, $importedFile);
+        $subCategories = Excel::toCollection(new CategoriesImport, $importedFile);
+        foreach ($subCategories[0] as $sc){
+            Category::where('id', $sc['id'])->update([
+                'category_id' => $sc['category_id'],
+            ]);
+            // dump($sc['category_id']);
+        }
+        // dd($subCategory);
+
+        return view('admin.importExcel')->with('flash_message', 'Import good!');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function exportProductsExcel()
     {
-        //
+        return Excel::download(new ProductsExport, 'products.xlsx');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+
+    // importCategoryExcelStore
+
 }

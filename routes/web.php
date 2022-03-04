@@ -8,6 +8,7 @@ use App\Http\Controllers\CabinetController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryFrontController;
 use App\Http\Controllers\admin\MainController as adminMainController;
+use App\Http\Controllers\ProductsExport;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,10 @@ Route::get('/category/{slug}', [CategoryFrontController::class, 'show'])->name('
  */
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
   Route::get('/', [adminMainController::class, 'index'])->name('admin.index');
+  Route::get('/importExcel', [adminMainController::class, 'importExcel'])->name('admin.importExcel');
+  Route::post('/importProductsExcel', [adminMainController::class, 'importProductsExcelStore'])->name('admin.importProductsExcelStore');
+  Route::post('/importCategoriesExcel', [adminMainController::class, 'importCategoriesExcelStore'])->name('admin.importCategoriesExcelStore');
+  Route::get('/exportProductsExcel', [adminMainController::class, 'exportProductsExcel'])->name('admin.exportProductsExcel');
     // Route::resource('/categories', CategoryController::class);
     // Route::resource('/tags', TagController::class);
     // Route::resource('/product', ProductController::class);
