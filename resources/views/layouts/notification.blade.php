@@ -3,7 +3,7 @@
     aria-atomic="true">
     <div class="toast-header">
         {{-- <img src="..." class="rounded me-2" alt="..."> --}}
-        <span class="bg-danger rounded-circle p-2 m-2"></span>
+        <span class="bg-success rounded-circle p-2 m-2"></span>
         <strong class="me-auto">Notification</strong>
         {{-- <small>now</small> --}}
         <a class="closeToast" onclick="document.getElementById('toast').className = 'opac';"><i
@@ -20,7 +20,7 @@
 <div id="toast" class="toast position-fixed bottom-0 end-0 p-2 m-3" role="alert" aria-live="assertive"
     aria-atomic="true">
     <div class="toast-header">
-        <span class="bg-success rounded-circle p-2 m-2"></span>
+        <span class="bg-danger rounded-circle p-2 m-2"></span>
         <strong class="me-auto">Notification</strong>
         {{-- <small>now</small> --}}
         <a class="closeToast" onclick="document.getElementById('toast').className = 'opac';"><i
