@@ -1,7 +1,7 @@
 {{-- построение дерева родительских категорий
 то что инклюдится, это чилд категории --}}
 
-
+{{-- @dd($categories) --}}
 <ul  class="list-group" id="categories">
     @foreach ($categories as $category)
         <li class="list-group-item"><i class="fa fa-arrow-right"></i><a class="{{ (request()->segment(2) == $category->slug) ? 'text-primary' : '' }}" href="{{ route('categories.single', ['slug' => $category->slug]) }}">{{ $category->title }}</a>

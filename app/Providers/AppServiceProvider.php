@@ -46,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
             /****
              * дерево категорий
              */
-            $categories = Category::whereNull('category_id')
+            $categories = Category::where('category_id', 0)
                 // ->withCount('products')
                 ->with('childrenCategories')
                 ->get();
