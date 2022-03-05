@@ -2,7 +2,7 @@
 
 @section('content')
     {{-- <div class="container"> --}}
-        <a class="btn btn-primary" href="{{route('admin.importExcel')}}" role="button">Импорт товаров Excel</a>
+        <a class="btn btn-primary" href="{{route('admin.importExportExcel')}}" role="button">Импорт/Экспорт Excel</a>
     </div>
     </div>
 

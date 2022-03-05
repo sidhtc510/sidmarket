@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\importExportExcelController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
@@ -44,25 +45,29 @@ Route::resource('/product', ProductController::class);
 
 Route::get('/category/{slug}', [CategoryFrontController::class, 'show'])->name('categories.single');
 
-  
+
 /**
  * 
  * Admin controllers
  */
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
   Route::get('/', [adminMainController::class, 'index'])->name('admin.index');
-  Route::get('/importExcel', [adminMainController::class, 'importExcel'])->name('admin.importExcel');
-  Route::post('/importProductsExcel', [adminMainController::class, 'importProductsExcelStore'])->name('admin.importProductsExcelStore');
-  Route::post('/importCategoriesExcel', [adminMainController::class, 'importCategoriesExcelStore'])->name('admin.importCategoriesExcelStore');
-  Route::get('/exportProductsExcel', [adminMainController::class, 'exportProductsExcel'])->name('admin.exportProductsExcel');
-    // Route::resource('/categories', CategoryController::class);
-    // Route::resource('/tags', TagController::class);
-    // Route::resource('/product', ProductController::class);
-    // Route::resource('/users', AdminUserController::class);
-    // Route::get('/delImg', [PostController::class, 'destroyImg'])->name('destroyImage');
-    // Route::get('/cc', [ClearCacheController::class, 'index'])->name('clearCache');
 
-   
-    // Route::resource('/sliders', SliderController::class);
+  Route::controller(importExportExcelController::class)->group(function () {
+    Route::get('/importExportExcel', 'importExcel')->name('admin.importExportExcel');
+    Route::post('/importProductsExcel', 'importProductsExcelStore')->name('admin.importProductsExcelStore');
+    Route::post('/importCategoriesExcel', 'importCategoriesExcelStore')->name('admin.importCategoriesExcelStore');
+    Route::get('/exportProductsExcel', 'exportProductsExcel')->name('admin.exportProductsExcel');
+  });
+
+  // Route::resource('/categories', CategoryController::class);
+  // Route::resource('/tags', TagController::class);
+  // Route::resource('/product', ProductController::class);
+  // Route::resource('/users', AdminUserController::class);
+  // Route::get('/delImg', [PostController::class, 'destroyImg'])->name('destroyImage');
+  // Route::get('/cc', [ClearCacheController::class, 'index'])->name('clearCache');
+
+
+  // Route::resource('/sliders', SliderController::class);
 });
 /****************************************************/
