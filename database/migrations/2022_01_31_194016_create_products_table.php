@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('id_postavschika')->nullable();
             $table->string('title')->nullable()->index();
-            $table->string('slug')->nullable()->index();
+            $table->string('slug')->nullable()->unique()->index();
             $table->integer('category_id')->nullable(); // привязать к таблице с категориями
             $table->float('price', 8, 2)->default(0)->unsigned();
             $table->float('price_new', 8, 2)->default(0)->unsigned();
